@@ -10,7 +10,7 @@ const EditPrompt = () => {
 
   const searchParams = useSearchParams();
   const promptId = searchParams.get("id");
-  const [submitting, setSetsubmitting] = useState(false);
+  const [submitting, setIsSetsubmitting] = useState(false);
   const [post, setPost] = useState({
     prompt: "",
     tag: "",
@@ -34,7 +34,7 @@ const EditPrompt = () => {
 
   const updatePrompt = async (e) => {
     e.preventDefault();
-    setSetsubmitting(true);
+    setIsSetsubmitting(true);
 
     if (!promptId) {
       return alert("Prompt ID not found");
@@ -47,13 +47,14 @@ const EditPrompt = () => {
           tag: post.tag,
         }),
       });
+
       if (response.ok) {
         router.push("/");
       }
     } catch (error) {
       console.log(error);
     } finally {
-      setSetsubmitting(false);
+      setIsSetsubmitting(false);
     }
   };
   return (
