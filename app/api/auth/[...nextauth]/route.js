@@ -1,4 +1,3 @@
-import nextAuth from "next-auth";
 import NextAuth from "next-auth/next";
 import GoogleProvider from "next-auth/providers/google";
 import { connectToDB } from "@utils/database";
@@ -37,7 +36,7 @@ const handler = NextAuth({
 
         return true;
       } catch (error) {
-        console.log(error);
+        console.log("Error checking if user exists: ", error.message);
         return false;
       }
     },
