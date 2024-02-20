@@ -21,7 +21,7 @@ const Feed = () => {
   const [allPosts, setAllPosts] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt");
+    const response = await fetch("/api/prompt/all");
     const data = await response.json();
     setAllPosts(data);
   };
