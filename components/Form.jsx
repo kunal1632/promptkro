@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { Suspense } from "react";
 
 const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
   return (
@@ -12,6 +13,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       </p>
 
       <form
+        id="prompt"
         onSubmit={handleSubmit}
         className="mt-10 w-full max-w-2xl flex flex-col gap-7 glassmorphism"
       >

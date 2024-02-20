@@ -14,18 +14,15 @@ const PromptCardList = ({ data, handleTagClik }) => {
 
 const Feed = () => {
   const [searchText, setSearchText] = useState("");
-  const [posts, setPosts] = useState([]);
+  const [allPosts, setAllPosts] = useState([]);
 
   const fetchPosts = async () => {
     const response = await fetch("/api/prompt");
     const data = await response.json();
-    setPosts(data);
+    setAllPosts(data);
   };
 
-  const handleSearchChange = (e) => {
-    e.preventDefault();
-    setSearchText(e.target.value);
-  };
+  const handleSearchChange = (e) => {};
 
   useEffect(() => {
     fetchPosts();
@@ -33,7 +30,7 @@ const Feed = () => {
 
   return (
     <section className="feed">
-      <form className="relative w-full flex-center">
+      <form id="search" className="relative w-full flex-center">
         <input
           type="text"
           placeholder="Search for a tag or username"
@@ -44,7 +41,7 @@ const Feed = () => {
         />
       </form>
 
-      <PromptCardList data={posts} handleTagClik={() => {}} />
+      <PromptCardList data={allPosts} handleTagClik={() => {}} />
     </section>
   );
 };
