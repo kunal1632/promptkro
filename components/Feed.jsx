@@ -2,11 +2,15 @@
 import { useState, useEffect } from "react";
 import PromptCard from "./PromptCard";
 
-const PromptCardList = ({ data, handleTagClik }) => {
+const PromptCardList = ({ data, handleTagClick }) => {
   return (
     <div className="mt-16 prompt_layout">
       {data.map((post) => (
-        <PromptCard key={post._id} post={post} handleTagClick={handleTagClik} />
+        <PromptCard
+          key={post._id}
+          post={post}
+          handleTagClick={handleTagClick}
+        />
       ))}
     </div>
   );
@@ -22,7 +26,9 @@ const Feed = () => {
     setAllPosts(data);
   };
 
-  const handleSearchChange = (e) => {};
+  const handleSearchChange = (e) => {
+    setSearchText(e.target.value);
+  };
 
   useEffect(() => {
     fetchPosts();
@@ -41,7 +47,7 @@ const Feed = () => {
         />
       </form>
 
-      <PromptCardList data={allPosts} handleTagClik={() => {}} />
+      <PromptCardList data={allPosts} handleTagClick={() => {}} />
     </section>
   );
 };
