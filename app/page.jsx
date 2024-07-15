@@ -10,7 +10,7 @@ const Home = () => {
         <span className="orange_gradient">AI-Powered Prompts</span>
       </h1>
       <p className="desc text-center">
-        Prmptkro is an open-source AI prompting tool for modern world to
+        Promptkro is an open-source AI prompting tool for modern world to
         discover, create and share creative propmts
       </p>
       <Feed />
